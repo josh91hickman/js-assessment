@@ -21,7 +21,15 @@ exports.arraysAnswers = {
   },
 
   remove: function(arr, item) {
+    let results = [];
+    
+    arr.forEach((num, i) => {
+      if (num !== item) {
+        results.push(num);
+      }
+    });
 
+    return results;
   },
 
   removeWithoutCopy: function(arr, item) {
