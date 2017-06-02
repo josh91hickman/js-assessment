@@ -1,7 +1,18 @@
+/* eslint-disable */
+
 exports = typeof window === 'undefined' ? global : window;
 
 exports.arraysAnswers = {
   indexOf: function(arr, item) {
+    let index = -1;
+
+    arr.forEach((num, i) => {
+      if (item === num) {
+        index = i;
+      }
+    });
+    
+    return index;
 
   },
 
