@@ -45,42 +45,94 @@ exports.arraysAnswers = {
   },
 
   append: function(arr, item) {
+    arr.push(item);
+    return arr;
 
   },
 
   truncate: function(arr) {
+    arr.splice(arr.length-1, 1);
+    return arr;
 
   },
 
   prepend: function(arr, item) {
+    arr.unshift(item);
+    return arr;
 
   },
 
   curtail: function(arr) {
-
+    arr.shift();
+    return arr;
   },
 
   concat: function(arr1, arr2) {
+
+    return arr1.concat(arr2);
 
   },
 
   insert: function(arr, item, index) {
 
+    arr.splice(index, 0, item);
+    return arr;
+
   },
 
   count: function(arr, item) {
+    let count = 0;
+    
+    arr.forEach((el) => {
+      if (el === item) {
+        count++;
+      }
+    });
+
+    return count;
 
   },
 
   duplicates: function(arr) {
 
+    let results = [];
+
+    const occurences = arr.reduce((prev, curr) => {
+      if (!prev[curr]) {
+        prev[curr] = 1;
+      } else {
+        prev[curr] += 1;
+      }
+
+      return prev;
+    }, {});
+
+    for (let el in occurences) {
+      if (occurences[el] > 1) {
+        results.push(Number(el));
+      }
+    }
+
+    return results;
   },
 
   square: function(arr) {
 
+    return arr.map((num) => num * num);
+
   },
 
   findAllOccurrences: function(arr, target) {
+
+    let occurences = [];
+
+    arr.forEach((el, i) => {
+      if (el === target) {
+        occurences.push(i);
+      }
+    });
+
+    return occurences;
 
   }
 };
